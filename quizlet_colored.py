@@ -35,7 +35,7 @@ def quizlet(stack, reverse = False):
     wrong = []      # list of mistakes: (index, usr input)
     start = "\033[1m"       #bold text
     end = "\033[0;0m"
-    input("\nWelcome to " + colored("Quizet Write","white","on_blue",["bold"]) + ". Press enter to begin, type '" + colored("exit","magenta",attrs=["underline"]) + "' anytime to exit")        #init
+    input("\nWelcome to " + colored("Quizet Write","white","on_blue",["bold"]) + ". Press enter to begin, type '" + colored("exit","magenta",attrs=["underline"]) + "' anytime to stop session and show score")        #init
 
     for i in range(len(term)):      #cycles through every word in stack
         index = random.choice(q)      #randomly selects index
@@ -45,7 +45,8 @@ def quizlet(stack, reverse = False):
             print(colored("Correct\n","green"))
             right += 1
         elif resp == "exit":        #exits
-            exit(2)
+            i -= 1
+            break
         elif "/" in ans and (resp == ans.split("/")[0] or resp == ans.split("/")[1]):   #if there are 2 ans
             print(colored("Correct","green") + f" '{ans}'\n")
             right += 1
@@ -61,18 +62,14 @@ def quizlet(stack, reverse = False):
         q.remove(index)       #removes index to prevent repetition
         time.sleep(0.3)
 
-    print (f"\nYou got {right} out of {len(term)} right!\nThat's a " + colored(str(round((right/len(term))*100)),"cyan") + " percent!\n")
+    print(f"\nYou got {right} out of {i+1} right!\nThat's a " + colored(str(round((right/(i+1))*100)),"cyan") + " percent!\n")
     choice = input("Would you like to see the words you got wrong? y/n?")
     if choice == "y" or choice == "":
         for i in wrong:
             print("\nYou entered '" + colored(i[1], "red") + "' for '" + colored(term[i[0]-1],"blue") + "'. The correct answer is '" + start + colored(defin[i[0]-1],"green",attrs=["underline"]) + end + "'")
     exit(2)
 
-#Paste flashcards here from quizlet.com (see readme), *optional if using existing file*
-stack = {"rojo(a)":"red",
-"azul(o)":"bleu",
-"trabajo (a)": "werk",
-"los tests": "ballz"}
-
+#Paste flashcards here from quizlet.com (see README), *optional if using existing file*
+stack = {}
 
 print(quizlet("example"))
