@@ -1,6 +1,7 @@
 Welcome to the Quizlet Write module. This is a complete and full-featured flashcards study tool.
 
-To start practicing, 
+To start practicing, create a dictionary using the below methods. (1,1a, or 2)
+
 1. Copy an existing Quizlet set off the website
 	a. Go to the set on quizlet.com
 	b. Under the title, click on the "...". Go to "export"
@@ -18,12 +19,13 @@ To start practicing,
 	a. Execute func. dict_generator(). Read doc string for details. The dict will be saved into the "stacks" folder
 
 
+
 After you have the dictionary mapping the terms to the definitions, cd to the repo and run 'pip install -r requirements'. Run 'conda install -r requirements' for Anaconda instead. 
 
-Go to quizlet_colored.py This colored version is recommended but requires library 'termcolor'.
+Go to quizlet_colored.py This colored version is highy recommended but requires library 'termcolor' installed in the previous step.
 Go to quizlet_uncolored.py if you are unable to install 'termcolor'
 
 
-In the quizlet() func., you can either use the 'stack' dictionary used in method 1 above, or input the file name of the dict you created using method 2 above without '.txt' 
+In the quizlet() func., you can either use the 'stack' dictionary used in method 1 above, or input the file name of the dict you created using methods 1a or 2 above without the '.txt' ending.
 
 
