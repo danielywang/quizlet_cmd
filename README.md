@@ -37,7 +37,7 @@ To get the flashcards (stacks) necessary for practicing, we can get the dictiona
     * This method is *strongly* recommended if you want to store multiple sets and switch between them with ease.
 
 3. Create your own set with ease with "quizlet_dict.py"
-	* a. Execute dict_generator() in ```quizlet_dict.py```. Read doc string for details. The dict will be saved into the "stacks" folder. 
+	* a. Execute dict_generator() in ```quizlet_dict.py```. Read doc string for details. The dict will be saved into the "stacks" folder.  
 
 
 ## Running the tests
