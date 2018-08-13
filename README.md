@@ -1,6 +1,6 @@
-# Project Title
+# Quizlet_CMD
 
-Welcome to the Quizlet Write module. This is a complete and full-featured flashcards study tool. Study Quizlet flashcards in the command line without an API, or make and study your own!
+Welcome to the Quizlet_CMD module. This is a complete and full-featured flashcards study tool. Study Quizlet flashcards in the command line without an API, or make and study your own!
 
 ## Getting Started
 
