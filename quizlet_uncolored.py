@@ -37,7 +37,7 @@ def quizlet(stack, reverse = False):
     end = "\033[0;0m"
     if str(sys.platform) == 'ios' or str(sys.platform) == "windows":
     	start,end = "",""
-    input("\nWelcome to " + start + "Quizet Write" + end +". Press enter to begin, type 'exit' anytime")        #init
+    input("\nWelcome to " + start + "Quizet Write" + end +". Press enter to begin, type 'exit' anytime to stop session and show score")        #init
 
     for i in range(len(term)):      #cycles through every word in stack
         index = random.choice(q)      #randomly selects index
@@ -47,7 +47,8 @@ def quizlet(stack, reverse = False):
             print("Correct\n")
             right += 1
         elif resp == "exit":        #exits
-            exit(2)
+            i -= 1
+            break
         elif "/" in ans and (resp == ans.split("/")[0] or resp == ans.split("/")[1]):   #if there are 2 ans
             print("Correct" + f" '{ans}'\n")
             right += 1
@@ -63,7 +64,7 @@ def quizlet(stack, reverse = False):
         q.remove(index)       #removes index to prevent repetition
         time.sleep(0.3)
 
-    print (f"You got {right} out of {len(term)} right!\nThat's a %s percent!\n"%round((right/len(term))*100))
+    print(f"You got {right} out of {i+1} right!\nThat's a %s percent!\n"%round((right/(i+1))*100))
     choice = input("Would you like to see the words you got wrong? y/n?")
     if choice == "y" or choice == "":
         for i in wrong:
