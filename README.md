@@ -24,20 +24,20 @@ There no additional modules to install.
 ## Getting Term-Definition Dictionaries
 To get the flashcards (stacks) necessary for practicing, we can get the dictionary by:
 1.  Copying an existing Quizlet set off the website
-	a. Go to the set on quizlet.com
-	b. Under the title, click on the "..."  Go to "export"
-	c. Enter the below custom settings for each column *with quotes*
+	* a. Go to the set on quizlet.com
+	* b. Under the title, click on the "..."  Go to "export"
+	* c. Enter the below custom settings for each column *with quotes*
 		'Between term and definition' ⟶  ```":"```
 		'Between rows' ⟶  ```",\n"```
-	d. Click ['Copy text']
-	e. Paste into the variable (dict) named 'stack' in *quizlet_colored.py* or *quizlet_uncolored.py*, add 1 quote at the beginning of the dictionary, delete extra quote at the end.
+	* d. Click ['Copy text']
+	* e. Paste into the variable (dict) named 'stack' in *quizlet_colored.py* or *quizlet_uncolored.py*, add 1 quote at the beginning of the dictionary, delete extra quote at the end.
   
 2.  #NOTE: You can also paste the dict from above into a new ```.txt``` file in the folder *stacks*. __You need to take out the \n in the [between rows] option since the module only reads 1 line__  -> ```","```
-    Add 1 quote at the beginning of the dictionary, delete extra quote at the end.
-    This method is *strongly* recommended if you want to store multiple sets and switch between them with ease.
+    * Add 1 quote at the beginning of the dictionary, delete extra quote at the end.
+    * This method is *strongly* recommended if you want to store multiple sets and switch between them with ease.
 
 3. Create your own set with ease with "quizlet_dict.py"
-	a. Execute dict_generator() in ```quizlet_dict.py```. Read doc string for details. The dict will be saved into the "stacks" folder. 
+	* a. Execute dict_generator() in ```quizlet_dict.py```. Read doc string for details. The dict will be saved into the "stacks" folder. 
 
 
 ## Running the tests
