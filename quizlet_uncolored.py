@@ -37,7 +37,7 @@ def quizlet(stack, reverse = False):
     end = "\033[0;0m"
     if str(sys.platform) == 'ios' or str(sys.platform) == "windows":
     	start,end = "",""
-    input("\nWelcome to " + start + "Quizet Write" + end +". Press enter to begin, type 'exit' anytime to stop session and show score")        #init
+    input("\nWelcome to " + start + "Quizet Write" + end +". Press enter to begin, input '"+start+ "#exit" + end +"' anytime to stop session and show score")        #init
 
     for i in range(len(term)):      #cycles through every word in stack
         index = random.choice(q)      #randomly selects index
@@ -46,7 +46,7 @@ def quizlet(stack, reverse = False):
         if resp == ans:       #checks for equiv
             print("Correct\n")
             right += 1
-        elif resp == "exit":        #exits
+        elif resp == "#exit":        #exits
             i -= 1
             break
         elif "/" in ans and (resp == ans.split("/")[0] or resp == ans.split("/")[1]):   #if there are 2 ans
