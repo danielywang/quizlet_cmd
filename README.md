@@ -24,6 +24,7 @@ If the above prerequisites cannot be fulfuilled, *quizlet_uncolored.py* is also 
 There no additional modules to install. 
 
 ## Getting Term-Definition Dictionaries
+(You can come back to this part later since there's an `example.txt` dictionary)
 To get the flashcards (stacks) necessary for practicing, we can get the dictionary by:
 1.  Copying an existing Quizlet set off the website
 	* a. Go to the set on quizlet.com
