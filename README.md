@@ -15,7 +15,9 @@ cd to the repo and run
 For Anaconda, run 
 ```conda install -r requirements.txt```
 
-If the prerequisite cannot be fulfuilled, *quizlet_uncolored.py* is also available
+Note: A Mac is required for the _optional_ `say` feature in *quizlet_colored.py*
+
+If the above prerequisites cannot be fulfuilled, *quizlet_uncolored.py* is also available
 
 ### Installing
 
@@ -58,16 +60,19 @@ Input your answer to the prompt, followed by 'enter'
 Enter ```exit``` at any time to end practice session and show score
 
 At the end of the session you will be prompted:
-```
-"Would you like to see the words you got wrong? y/n?"
-```
+
+`"Would you like to see the words you got wrong? y/n?"`
+
 Inputting "y" will show a list of words you got wrong, the prompt, and the correct answer
 
-
+#### Remarks
+A Mac is required for the _optional_ `say` feature in *quizlet_colored.py*, which speaks the terms and definitions out loud.
+ The default is set to `False`. **Specify `say = True` if you are on Mac and wish to enable the feature.**
 ## Versioning
 
-Version 1.0.4
-
+Version 1.1.0
+**Now supports voice prompts!**
+Specify `say = True` if you are on Mac and wish to enable the feature.
 ## Author
 
 * **Daniel Wang** - *Initial work* - [danielywang](https://github.com/danielywang)
