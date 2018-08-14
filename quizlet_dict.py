@@ -16,13 +16,19 @@ def dict_generator(max_words = 50, copy = False):
     returns:
     _______
     stack (dict)"""
-    print("PRESS EXIT ANY TIME TO SAVE & EXIT\n")
-    path = input("What do you want to name your quizlet?") + '.txt'
+    path = input("\nWhat do you want to name your stack?\n")
+    print("\n")
+    path += "" if path.endswith(".txt") else ".txt"
+    print("ENTER 'SAVE'/'EXIT' ALL CAPS ANY TIME TO SAVE & EXIT\nEnter in the term followed by the definition.\n")
     term = []
     defin = []
     for i in range(max_words):
-        word = input()
-        if word == "exit":
+        if i<2:
+            td = 'term' if i%2 == 0 else "definition"
+            word = input("Enter your {}: ".format(td))
+        else:
+            word = input()
+        if word == "SAVE" or word == 'EXIT':
             break
         if i%2 == 0:
             term.append(word) 
