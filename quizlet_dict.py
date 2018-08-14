@@ -1,6 +1,6 @@
 #Use this module to generate a dictionary to use in quizlet.py
 
-def dict_generator(max_words = 50, path = None, copy = False):
+def dict_generator(max_words = 50, copy = False):
     """Enter in key, value; repeat
     PRESS EXIT ANY TIME TO END SESSION
 
@@ -16,10 +16,10 @@ def dict_generator(max_words = 50, path = None, copy = False):
     returns:
     _______
     stack (dict)"""
-
+    print("PRESS EXIT ANY TIME TO SAVE & EXIT\n")
+    path = input("What do you want to name your quizlet?") + '.txt'
     term = []
     defin = []
-    print("PRESS EXIT ANY TIME TO SAVE & EXIT\n")
     for i in range(max_words):
         word = input()
         if word == "exit":
@@ -41,7 +41,6 @@ def dict_generator(max_words = 50, path = None, copy = False):
     if path is not None:        #save in folder "stacks" if usr chooses so
         from pathlib import Path
         root = Path(".")
-        path += ".txt"
         path_2_stacks = root/"stacks"/path
         with open(path_2_stacks,"a") as dic:
             dic.write(str(stack))
@@ -49,4 +48,4 @@ def dict_generator(max_words = 50, path = None, copy = False):
     return stack
 
 #copy and paste dictionary into quizlet.py, under variable 'stack'
-print(dict_generator(10,"tester2"))
+print(dict_generator(10))
