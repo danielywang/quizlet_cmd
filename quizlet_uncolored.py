@@ -1,4 +1,4 @@
-#Offline Quizlet "write" module
+#Quizlet_CMD module
 import random, time, sys
 from pathlib import Path
 from ast import literal_eval
@@ -55,7 +55,7 @@ def quizlet(stack, reverse = False):
         elif "(" in ans and resp == ans[:ans.find("(")] or resp == ans[:ans.find("(")]+" ":    #if there are parentheses
             print("Correct" + f" '{ans}'\n")
             right += 1
-        elif resp == ans[:ans.find("(")-1] if ans[ans.find("(")-1].endswith(" ") else False:
+        elif resp == ans[:ans.find("(")-1] or ans.replace(" (","(") if ans[ans.find("(")-1].endswith(" ") else False:
             print("Correct" + f" '{ans}'\n")
             right += 1 
         else:

@@ -9,7 +9,7 @@ from os import system
 In "export" under the triple-dot, enter the below 'custom' settings (with the quotes)
 Between term and definition:    ":"
 Between rows:                   ",\n"
-Paste in stack, add init quote
+Paste in stack, add init quote, del. end quote
 """
 
 def quizlet(stack, say = False, reverse = False):
