@@ -68,9 +68,13 @@ Inputting "y" will show a list of words you got wrong, the prompt, and the corre
 
 Version 1.0.1
 
-## Authors
+## Author
 
 * **Daniel Wang** - *Initial work* - [danielywang](https://github.com/danielywang)
+
+# Contributors
+*Dan Bi* - [wujibi123](https://github.com/wujibi123)
+
 
 ## License
 
