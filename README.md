@@ -66,7 +66,7 @@ Inputting "y" will show a list of words you got wrong, the prompt, and the corre
 
 ## Versioning
 
-Version 1.0.1
+Version 1.0.4
 
 ## Author
 
