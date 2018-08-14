@@ -72,7 +72,7 @@ Version 1.0.1
 
 * **Daniel Wang** - *Initial work* - [danielywang](https://github.com/danielywang)
 
-# Contributors
+### Contributors
 *Dan Bi* - [wujibi123](https://github.com/wujibi123)
 
 
