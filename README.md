@@ -42,10 +42,15 @@ To get the flashcards (stacks) necessary for practicing, we can get the dictiona
 
 ## Running the tests
 
+### *MAKE SURE TO CD TO THE FOLDER/OPEN THE ENTIRE FOLDER IN YOUR EDITOR*
+This is required to make the file-reading and writing work
+
+
 To test the *quizlet_colored* module using the pre-installed *example.txt*, cd to the folder and run:
 
 ```python -c 'import quizlet_colored; print(quizlet_colored.quizlet("example"))' ```
 
+Again, if the above didn't work, make sure you are in the `quizlet_cmd` directory
 ### Quizlet function
 
 If the above command worked, you are now in the main quizlet function. This function allows you to practice flashcards (in this case, a Spanish *example.txt* located in *stacks*)
