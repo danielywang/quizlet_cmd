@@ -10,10 +10,10 @@ Clone or download the repo to get started
 
 The recommended *quizlet_colored.py* requires the **termcolor** module
 cd to the repo and run 
-```pip install -r requirements.txt``` 
+```pip install termcolor``` 
 
 For Anaconda, run 
-```conda install -r requirements.txt```
+```conda install termcolor```
 
 Note: A Mac is required for the _optional_ `say` feature in *quizlet_colored.py*
 
