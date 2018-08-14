@@ -16,10 +16,10 @@ def dict_generator(max_words = 50, copy = False):
     returns:
     _______
     stack (dict)"""
-    path = input("\nWhat do you want to name your stack?\n")
+    path = input("\nWelcome to the stack dictionary generator. \nWhat would you like to name your stack?\n")
     print("\n")
     path += "" if path.endswith(".txt") else ".txt"
-    print("ENTER 'SAVE'/'EXIT' ALL CAPS ANY TIME TO SAVE & EXIT\nEnter in the term followed by the definition.\n")
+    print("ENTER 'SAVE'/'EXIT' ALL CAPS ANY TIME TO SAVE & EXIT, 'ABORT' TO EXIT W/O SAVING\nEnter in the term followed by the definition.\n")
     term = []
     defin = []
     for i in range(max_words):
@@ -30,6 +30,9 @@ def dict_generator(max_words = 50, copy = False):
             word = input()
         if word == "SAVE" or word == 'EXIT':
             break
+        elif word == "ABORT":
+            print("Stack not saved")
+            exit(2)
         if i%2 == 0:
             term.append(word) 
         else:
