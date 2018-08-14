@@ -71,6 +71,7 @@ A Mac is required for the _optional_ `say` feature in *quizlet_colored.py*, whic
 ## Versioning
 
 Version 1.1.0
+
 **Now supports voice prompts!**
 Specify `say = True` if you are on Mac and wish to enable the feature.
 ## Author
