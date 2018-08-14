@@ -94,4 +94,4 @@ def quizlet(stack, say = False, reverse = False):
 stack = {"你好":"hello"}
 
 #Again, 'say' is only available for Mac OS
-print(quizlet("example", say=True))
+print(quizlet("example", say=False))
