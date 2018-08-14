@@ -1,8 +1,9 @@
-#Offline Quizlet "write" module
+#Quizlet_CMD module
 import random, time
 from termcolor import colored
 from pathlib import Path
 from ast import literal_eval
+from os import system
 
 """INSTRUCTIONS FOR EXPORTING SET FROM QUIZLET
 In "export" under the triple-dot, enter the below 'custom' settings (with the quotes)
@@ -11,15 +12,25 @@ Between rows:                   ",\n"
 Paste in stack, add init quote
 """
 
-def quizlet(stack, reverse = False):
+def quizlet(stack, say = False, reverse = False):
     """Quizlet "write" program
     params:
     _______
     stack (dict or str):
         dictionary of words and their definitions
         or file name of existing dictionary 
+    say (bool):
+        #ONLY AVAILABLE ON MAC OS!!!
+        whether to read the terms and definitions. optional (default = True)
     reverse (bool):
         whether terms/definitions are reversed. optional"""
+
+    def correct(half=False):
+        if half:
+            print(colored("Correct","green") + f" '{ans}'\n")
+        else:
+            print(colored("Correct\n","green"))
+
     if isinstance(stack,str):       #reads dict from existing file if "stack" is str
         stack += "" if stack.endswith(".txt") else ".txt"
         with open(Path(".") / "stacks"/stack,"r") as dic:
@@ -30,37 +41,47 @@ def quizlet(stack, reverse = False):
     if reverse:
         term, defin = defin, term
           
+    lang_voice = {"spanish":"paulina","english":"samantha","french":"amelie","chinese":"Ting-Ting","russian":"yuri"}     #dict for language mappings (Mac OS)
+
     q = [i for i in range(1,len(term)+1)]       #list of indexes
     right = 0       #score
     wrong = []      # list of mistakes: (index, usr input)
     start = "\033[1m"       #bold text
     end = "\033[0;0m"
     input("\nWelcome to " + colored("Quizet Write","white","on_blue",["bold"]) + ". Press enter to begin, input '" + colored("#exit","magenta",attrs=["underline"]) + "' anytime to stop session and show score")        #init
+    if say:
+        lang_t = input("What language are the terms? For example, '"+random.choice(term) + "'\n").lower()
+        lang_d = input("What language are the definitions? For example, '"+random.choice(defin) + "'\n").lower()
 
     for i in range(len(term)):      #cycles through every word in stack
         index = random.choice(q)      #randomly selects index
-        resp = input(start + f"{term[index-1]}\n" + end).lower()
+        print(start + f"{term[index-1]}" + end)
+        if say:
+            system(f"say -v {lang_voice[lang_t]} {term[index-1].replace('(',' ').replace(')',' ').replace('/',' ')}")
+        resp = input().lower()
         ans = defin[index-1].lower()
         if resp == ans:       #checks for equiv
-            print(colored("Correct\n","green"))
+            correct()
             right += 1
         elif resp == "#exit":        #exits
             i -= 1
             break
         elif "/" in ans and (resp == ans.split("/")[0] or resp == ans.split("/")[1]):   #if there are 2 ans
-            print(colored("Correct","green") + f" '{ans}'\n")
+            correct(half=True)
             right += 1
         elif "(" in ans and resp == ans[:ans.find("(")] or resp == ans[:ans.find("(")]+" ":    #if there are parentheses
-            print(colored("Correct","green") + f" '{ans}'\n")
+            correct(half=True)
             right += 1
-        elif resp == ans[:ans.find("(")-1] if ans[ans.find("(")-1].endswith(" ") else False:
-            print(colored("Correct","green") + f" '{ans}'\n")
+        elif resp == ans[:ans.find("(")-1] or ans.replace(" (","(") if ans[ans.find("(")-1].endswith(" ") else False:
+            correct(half=True)
             right += 1
         else:
-            print("The correct answer is " + start + colored(f"{defin[index-1]}","red") + end +"\n")   #if wrong, provides correct ans
+            print("The correct answer is " + start + colored(f"{ans}","red") + end +"\n")   #if wrong, provides correct ans
             wrong.append((index,resp))
+        if say:
+            system(f"say -v {lang_voice[lang_d]} {ans.replace('(',' ').replace(')',' ').replace('/',' ')}")
         q.remove(index)       #removes index to prevent repetition
-        time.sleep(0.3)
+        time.sleep(0.1) if say else time.sleep(0.3)
 
     print(f"\nYou got {right} out of {i+1} right!\nThat's a " + colored(str(round((right/(i+1))*100)),"cyan") + " percent!\n")
     choice = input("Would you like to see the words you got wrong? y/n?")
@@ -70,6 +91,7 @@ def quizlet(stack, reverse = False):
     exit(2)
 
 #Paste flashcards here from quizlet.com (see README), *optional if using existing file*
-stack = {}
+stack = {"你好":"hello"}
 
-print(quizlet("example"))
+#Again, 'say' is only available for Mac OS
+print(quizlet("example", say=True))
