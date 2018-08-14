@@ -8,8 +8,6 @@ def dict_generator(max_words = 50, copy = False):
     _______
     max_words (int):
         max number of iterations. optional (default = 50)
-    path (str):
-        file name of stack to be saved. optinal (default = None)
     copy (bool):
         whether to copy stack. optional (default = False)
 
