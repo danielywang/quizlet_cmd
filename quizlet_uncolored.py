@@ -11,7 +11,9 @@ Paste in stack, add init quote, del. end quote
 """
 
 def quizlet(stack, reverse = False):
-    """Quizlet "write" program
+    """Quizlet_CMD program
+    This is a complete and full-featured flashcards study tool. Study Quizlet flashcards in the command line without an API
+
     params:
     _______
     stack (dict or str):
@@ -37,7 +39,7 @@ def quizlet(stack, reverse = False):
     end = "\033[0;0m"
     if sys.platform != "darwin":
     	start,end = "",""
-    input("\nWelcome to " + start + "Quizet Write" + end +". Press enter to begin, input '"+start+ "#exit" + end +"' anytime to stop session and show score")        #init
+    input("\nWelcome to " + start + "Quizet_CMD" + end +". Press enter to begin, input '"+start+ "#exit" + end +"' anytime to stop session and show score")        #init
 
     for i in range(len(term)):      #cycles through every word in stack
         index = random.choice(q)      #randomly selects index

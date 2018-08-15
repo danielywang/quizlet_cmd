@@ -13,7 +13,9 @@ Paste in stack, add init quote, del. end quote
 """
 
 def quizlet(stack, say = False, reverse = False):
-    """Quizlet "write" program
+    """Quizlet_CMD program
+    This is a complete and full-featured flashcards study tool. Study Quizlet flashcards in the command line without an API
+
     params:
     _______
     stack (dict or str):
@@ -50,7 +52,7 @@ def quizlet(stack, say = False, reverse = False):
     end = "\033[0;0m"
     if sys.platform != "darwin":        #disable bold text for non-unix platforms
     	start,end = "",""
-    input("\nWelcome to " + colored("Quizet Write","white","on_blue",["bold"]) + ". Press enter to begin, input '" + colored("#exit","magenta",attrs=["underline"]) + "' anytime to stop session and show score")        #init
+    input("\nWelcome to " + colored("Quizet_CMD","white","on_blue",["bold"]) + ". Press enter to begin, input '" + colored("#exit","magenta",attrs=["underline"]) + "' anytime to stop session and show score")        #init
     if say:
         lang_t = input("What language are the terms? For example, '"+random.choice(term) + "'\n").lower()
         lang_d = input("What language are the definitions? For example, '"+random.choice(defin) + "'\n").lower()
