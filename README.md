@@ -25,6 +25,7 @@ There no additional modules to install.
 
 ## Getting Term-Definition Dictionaries
 (You can come back to this part later since there's an `example.txt` dictionary)
+
 To get the flashcards (stacks) necessary for practicing, we can get the dictionary by:
 1.  Copying an existing Quizlet set off the website
 	* a. Go to the set on quizlet.com
@@ -68,13 +69,13 @@ Inputting "y" will show a list of words you got wrong, the prompt, and the corre
 
 #### Remarks
 A Mac is required for the _optional_ `say` feature in *quizlet_colored.py*, which speaks the terms and definitions out loud.
- The default is set to `False`. **Specify `say = True` if you are on Mac and wish to enable the feature.**
+ *quizlet_colored.py* currently has an OS detection set in place, so if you are on Mac OS, the featured will be enabled and vice versa. **feel free to change the parameters of the _quizlet_ function!** The defaults are just there as a demonstration.
 ## Versioning
 
-Version 1.1.0
+Version 1.1.1
 
 **Now supports voice prompts!**
-Specify `say = True` if you are on Mac and wish to enable the feature.
+The *say* feature will be automatically turned on if you are on Mac OS. Again, feel free to turn it off. 
 ## Author
 
 * **Daniel Wang** - *Initial work* - [danielywang](https://github.com/danielywang)
