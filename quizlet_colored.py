@@ -53,6 +53,8 @@ def quizlet(stack, say = False, reverse = False):
     if sys.platform != "darwin":        #disable bold text for non-unix platforms
         from colorama import init
         init()
+        print("\nWelcome to " + colored("Quizet_CMD","white","on_blue",["bold"]) + ". Press enter to begin, input '" + colored("#exit","magenta",attrs=["underline"]) + "' anytime to stop session and show score")
+        input()
     else:
         input("\nWelcome to " + colored("Quizet_CMD","white","on_blue",["bold"]) + ". Press enter to begin, input '" + colored("#exit","magenta",attrs=["underline"]) + "' anytime to stop session and show score")        #init
     if say:
