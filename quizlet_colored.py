@@ -1,5 +1,5 @@
 #Quizlet_CMD module
-import random, time
+import random, time, sys
 from termcolor import colored
 from pathlib import Path
 from ast import literal_eval
@@ -48,6 +48,8 @@ def quizlet(stack, say = False, reverse = False):
     wrong = []      # list of mistakes: (index, usr input)
     start = "\033[1m"       #bold text
     end = "\033[0;0m"
+    if sys.platform != "darwin" or sys.platform != "linux":        #disable bold text for non-unix platforms
+    	start,end = "",""
     input("\nWelcome to " + colored("Quizet Write","white","on_blue",["bold"]) + ". Press enter to begin, input '" + colored("#exit","magenta",attrs=["underline"]) + "' anytime to stop session and show score")        #init
     if say:
         lang_t = input("What language are the terms? For example, '"+random.choice(term) + "'\n").lower()
@@ -93,5 +95,10 @@ def quizlet(stack, say = False, reverse = False):
 #Paste flashcards here from quizlet.com (see README), *optional if using existing file*
 stack = {"你好":"hello"}
 
-#Again, 'say' is only available for Mac OS
-print(quizlet("example", say=False))
+
+#Again, 'say' is only available for Mac OS. 
+#Feel free to change the params of the function!
+if sys.platform == 'darwin':
+    print(quizlet("example", say=False))
+else:
+    print(quizlet("example", say=True))
