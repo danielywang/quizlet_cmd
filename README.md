@@ -9,19 +9,24 @@ Clone or download the repo to get started
 ### Prerequisites
 
 The recommended *quizlet_colored.py* requires the **termcolor** module
-cd to the repo and run 
-```pip install termcolor``` 
+(*If you are on Windows*, install **colorama** in addition to *termcolor*)
 
-For Anaconda, run 
-```conda install termcolor```
+#### In terminal, cd to the repo folder and run 
+`pip install -r requirements.txt`  
 
-Note: A Mac is required for the _optional_ `say` feature in *quizlet_colored.py*
+**Make sure you are in the `quizlet_cmd` directory*
 
-If the above prerequisites cannot be fulfuilled, *quizlet_uncolored.py* is also available
+If the above doesn't work, manually install them.
+`pip install termcolor`
+`pip install colorama` (Windows)
 
-### Installing
+Anaconda users: use `conda` commands for the above installs  
+  
+Note: Mac OS is required for the _optional_ `say` feature in *quizlet_colored.py*
 
-There no additional modules to install. 
+
+**If the above prerequisites cannot be fulfuilled, *quizlet_uncolored.py* is also available**
+
 
 
 
@@ -34,7 +39,7 @@ This is required to make the file-reading and writing work
 
 To test the *quizlet_colored* module using the pre-installed *example.txt*, cd to the folder and run:
 
-```python -c 'import quizlet_colored; print(quizlet_colored.quizlet("example"))' ```
+```python quizlet_colored.py ```
 
 Again, if the above didn't work, make sure you are in the `quizlet_cmd` directory
 ***
