@@ -35,7 +35,7 @@ def quizlet(stack, reverse = False):
     wrong = []      # list of mistakes: (index, usr input)
     start = "\033[1m"       #bold text
     end = "\033[0;0m"
-    if str(sys.platform) == 'ios' or str(sys.platform) == "windows":
+    if sys.platform != "darwin" or sys.platform != "linux":
     	start,end = "",""
     input("\nWelcome to " + start + "Quizet Write" + end +". Press enter to begin, input '"+start+ "#exit" + end +"' anytime to stop session and show score")        #init
 
