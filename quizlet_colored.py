@@ -99,6 +99,6 @@ stack = {"你好":"hello"}
 #Again, 'say' is only available for Mac OS. 
 #Feel free to change the params of the function!
 if sys.platform == 'darwin':
-    print(quizlet("example", say=False))
-else:
     print(quizlet("example", say=True))
+else:
+    print(quizlet("example", say=False))
