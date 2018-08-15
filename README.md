@@ -102,10 +102,12 @@ To get the flashcards (stacks) necessary for practicing, we can get the dictiona
 ***
 ## Versioning
 
-Version 1.1.1
+Version 1.1.3
 
-**Now supports voice prompts!**
-The *say* feature will be automatically turned on if you are on Mac OS. Again, feel free to turn it off. 
+**1.1 Now supports voice prompts!**
+The *say* feature will be automatically turned on if you are on Mac OS. Again, feel free to turn it off.  
+
+**1.1.3 Colors and bolding support Windows**
 ***
 ## Author
 
