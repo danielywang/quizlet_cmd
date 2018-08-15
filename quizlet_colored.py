@@ -1,4 +1,6 @@
 #Quizlet_CMD module
+import sys
+import platform
 import random, time
 from termcolor import colored
 from pathlib import Path
@@ -94,4 +96,6 @@ def quizlet(stack, say = False, reverse = False):
 stack = {"你好":"hello"}
 
 #Again, 'say' is only available for Mac OS
-print(quizlet("example", say=False))
+
+if sys.platform == "darwin" : print(quizlet("example", say=True))
+if sys.platform != "darwin" : print(quizlet("example", say=False))       
