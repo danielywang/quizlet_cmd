@@ -6,7 +6,7 @@ Welcome to the Quizlet_CMD module. This is a complete and full-featured flashcar
 
 Clone or download the repo to get started
 
-### Prerequisites
+## Prerequisites
 
 The recommended *quizlet_colored.py* requires the **termcolor** module
 (*If you are on Windows*, install **colorama** in addition to *termcolor*)
@@ -16,13 +16,14 @@ The recommended *quizlet_colored.py* requires the **termcolor** module
 
 **Make sure you are in the `quizlet_cmd` directory*
 
-If the above doesn't work, manually install them.
+Anaconda users: use `conda` instead
+  
+Note: Mac OS is required for the _optional_ `say` feature in *quizlet_colored.py*
+***
+If the above doesn't work, run
 `pip install termcolor`
 `pip install colorama` (Windows)
 
-Anaconda users: use `conda` commands for the above installs  
-  
-Note: Mac OS is required for the _optional_ `say` feature in *quizlet_colored.py*
 
 
 **If the above prerequisites cannot be fulfuilled, *quizlet_uncolored.py* is also available**
