@@ -82,6 +82,8 @@ Specify `say = True` if you are on Mac and wish to enable the feature.
 ### Contributors
 *Dan Bi* - [wujibi123](https://github.com/wujibi123)
 
+*William Kopans* - [Wi11-Da-Beast](https://github.com/wi11-da-beast)
+
 
 ## License
 
