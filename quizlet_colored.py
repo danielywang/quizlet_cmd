@@ -48,7 +48,7 @@ def quizlet(stack, say = False, reverse = False):
     wrong = []      # list of mistakes: (index, usr input)
     start = "\033[1m"       #bold text
     end = "\033[0;0m"
-    if sys.platform != "darwin" or sys.platform != "linux":        #disable bold text for non-unix platforms
+    if sys.platform != "darwin":        #disable bold text for non-unix platforms
     	start,end = "",""
     input("\nWelcome to " + colored("Quizet Write","white","on_blue",["bold"]) + ". Press enter to begin, input '" + colored("#exit","magenta",attrs=["underline"]) + "' anytime to stop session and show score")        #init
     if say:
@@ -74,11 +74,15 @@ def quizlet(stack, say = False, reverse = False):
         elif "(" in ans and resp == ans[:ans.find("(")] or resp == ans[:ans.find("(")]+" ":    #if there are parentheses
             correct(half=True)
             right += 1
-        elif resp == ans[:ans.find("(")-1] or ans.replace(" (","(") if ans[ans.find("(")-1].endswith(" ") else False:
+        elif resp == (ans[:ans.find("(")-1] or ans.replace(" (","(")) if ans[ans.find("(")-1].endswith(" ") else False:
             correct(half=True)
             right += 1
         else:
-            print("The correct answer is " + start + colored(f"{ans}","red") + end +"\n")   #if wrong, provides correct ans
+            print("The correct answer is " + start + colored(f"{ans}","red") + end)   #if wrong, provides correct ans
+            if resp in defin:
+                print(f"'{resp}' is the answer for '" + colored(term[defin.index(resp)],"blue") + "'\n")
+            else:
+                print("\n")
             wrong.append((index,resp))
         if say:
             system(f"say -v {lang_voice[lang_d]} {ans.replace('(',' ').replace(')',' ').replace('/',' ')}")

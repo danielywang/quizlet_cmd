@@ -35,7 +35,7 @@ def quizlet(stack, reverse = False):
     wrong = []      # list of mistakes: (index, usr input)
     start = "\033[1m"       #bold text
     end = "\033[0;0m"
-    if sys.platform != "darwin" or sys.platform != "linux":
+    if sys.platform != "darwin":
     	start,end = "",""
     input("\nWelcome to " + start + "Quizet Write" + end +". Press enter to begin, input '"+start+ "#exit" + end +"' anytime to stop session and show score")        #init
 
@@ -55,14 +55,18 @@ def quizlet(stack, reverse = False):
         elif "(" in ans and resp == ans[:ans.find("(")] or resp == ans[:ans.find("(")]+" ":    #if there are parentheses
             print("Correct" + f" '{ans}'\n")
             right += 1
-        elif resp == ans[:ans.find("(")-1] or ans.replace(" (","(") if ans[ans.find("(")-1].endswith(" ") else False:
+        elif resp == (ans[:ans.find("(")-1] or ans.replace(" (","(")) if ans[ans.find("(")-1].endswith(" ") else False:
             print("Correct" + f" '{ans}'\n")
             right += 1 
         else:
-            print("The correct answer is " + start + f"{defin[index-1]}\n" + end)   #if wrong, provides correct ans
+            print("The correct answer is " + start + f"{defin[index-1]}" + end)   #if wrong, provides correct ans
+            if resp in defin:
+                print(f"'{resp}' is the answer for '" + start + term[defin.index(resp)] + end + "'\n")
+            else:
+                print("\n")
             wrong.append((index,resp))
         q.remove(index)       #removes index to prevent repetition
-        time.sleep(0.3)
+        time.sleep(0.35)
 
     print(f"You got {right} out of {i+1} right!\nThat's a %s percent!\n"%round((right/(i+1))*100))
     choice = input("Would you like to see the words you got wrong? y/n?")
