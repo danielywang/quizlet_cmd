@@ -50,18 +50,16 @@ If the above command worked, you are now in the main quizlet function. This func
 Input your answer to the prompt, followed by 'enter'  
 Enter ```#exit``` at any time to end practice session and show score
 
-At the end of the session you will be prompted:
-
-`"Would you like to see the words you got wrong? y/n?"`
-
-Inputting "y" will show a list of words you got wrong, the prompt, and the correct answer
-
 #### Features
 * Param `stack` can either open file with file name (recommended), or use the internal `stack` dictionary 
 * Param `say = True` reads prompts and answers using specified languages _(Mac only)_
 	* Realized using Mac OS's built-in `say` function. User input specifies language, which activates different voices. Program is optimzed for irregular characters such as `(parentheses)` and `/` slashes
 * Param `reverse = True` reverses terms/definitions
 * Program notifies user if their wrong answer matches another answer  
+
+* Program shows a list of words you got wrong, the prompt, and the correct answer
+* Asks if user wants to save the set of words they got wrong into a new file
+* Asks if user wants to practice the words they got wrong  
  
 
 * If there are synonyms in the answer separated by `/`, eg `"car":"el coche/el carro"`, entering either (or both) would count as a correct answer
@@ -102,7 +100,7 @@ To get the flashcards (stacks) necessary for practicing, we can get the dictiona
 ***
 ## Versioning
 
-Version 1.1.3
+Version 1.2.0
 
 **1.1 Now supports voice prompts!**
 The *say* feature will be automatically turned on if you are on Mac OS. Again, feel free to turn it off.  
@@ -110,7 +108,9 @@ The *say* feature will be automatically turned on if you are on Mac OS. Again, f
 **1.1.3 Colors and bolding support Windows**  
 
 Known issues:
-Colors and bolding in Windows only work in CMD
+Colors and bolding in Windows only work in CMD  
+
+**1.2 Now asks user if they want to save the set of words they got wrong into a new file, and whether they want to practice them**
 ***
 ## Author
 
