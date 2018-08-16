@@ -71,10 +71,31 @@ def quizlet(stack, reverse = False):
         time.sleep(0.35)
 
     print(f"You got {right} out of {i+1} right!\nThat's a %s percent!\n"%round((right/(i+1))*100))
-    choice = input("Would you like to see the words you got wrong? y/n?")
+    choice = input("Would you like to see the words you got wrong? [y]/n ")
     if choice == "y" or choice == "":
+        stack_wrong = dict(zip([defin[i[0]-1] for i in wrong],[term[i[0]-1] for i in wrong]))       #creates new dict of mistakes
         for i in wrong:
             print(f"\nYou entered '{i[1]}' for '{term[i[0]-1]}'. The correct answer is " + start + f"'{defin[i[0]-1]}'." + end)
+        save = input("\nWould you like to save the words you got wrong into a stack? y/[n] ")
+        if save != "n" and save != "" and save != "no":
+            root = Path(".")
+            new = False
+            while new == False:
+                path = input(f"What would you like to name your new file?  {(stack + '_') if isinstance(stack,str) else ''}") 
+                path = (stack + "_") if isinstance(stack,str) else "" + path
+                path += "" if path.endswith(".txt") else ".txt"              
+                path_2_stacks = root/"stacks"/path
+                if path_2_stacks.exists():
+                    print("File already exists\n")
+                else: new = True
+            with open(path_2_stacks,"a") as dic:
+                dic.write(str(stack_wrong))
+            print("Stack is saved at '" + str(path_2_stacks) + "'!")
+        study = input("\nWould you like to study the words you got wrong? y/[n] ")
+        if study != "n" and study != "" and study != "no":
+            quizlet(stack_wrong,reverse=reverse)
+
+
     exit(2)
 
 #Paste flashcards here from quizlet.com (see readme), *optional if using existing file*
