@@ -43,8 +43,6 @@ def quizlet(stack, say = False, reverse = False):
     if reverse:
         term, defin = defin, term
           
-    lang_voice = {"spanish":"paulina","english":"samantha","french":"amelie","chinese":"Ting-Ting","russian":"yuri"}     #dict for language mappings (Mac OS)
-
     q = [i for i in range(1,len(term)+1)]       #list of indexes
     right = 0       #score
     wrong = []      # list of mistakes: (index, usr input)
@@ -57,15 +55,25 @@ def quizlet(stack, say = False, reverse = False):
         input()
     else:
         input("\nWelcome to " + colored("Quizet_CMD","white","on_blue",["bold"]) + ". Press enter to begin, input '" + colored("#exit","magenta",attrs=["underline"]) + "' anytime to stop session and show score")        #init
+    
+    lang_voice = {"spanish":"paulina","english":"samantha","french":"amelie","chinese":"Ting-Ting","russian":"yuri"}     #dict for language mappings (Mac OS)
+    
     if say:
-        lang_t = input("What language are the terms? For example, '"+random.choice(term) + "'\n").lower()
-        lang_d = input("What language are the definitions? For example, '"+random.choice(defin) + "'\n").lower()
-
+        lang = False
+        while lang == False:        #checks if languages are supported/spelling is correct
+            try:
+                lang_t = lang_voice[input("What language are the terms? For example, '"+random.choice(term) + "'\n").lower()]
+                lang_d = lang_voice[input("What language are the definitions? For example, '"+random.choice(defin) + "'\n").lower()]
+                lang = True
+                print("\n")
+            except KeyError:
+                print("Check your spelling/The program does not yet support this language\n")
+            
     for i in range(len(term)):      #cycles through every word in stack
         index = random.choice(q)      #randomly selects index
         print(start + f"{term[index-1]}" + end)
         if say:
-            system(f"say -v {lang_voice[lang_t]} {term[index-1].replace('(',' ').replace(')',' ').replace('/',' ')}")
+            system(f"say -v {lang_t} {term[index-1].replace('(',' ').replace(')',' ').replace('/',' ')}")
         resp = input().lower()
         ans = defin[index-1].lower()
         if resp == ans:       #checks for equiv
@@ -91,15 +99,35 @@ def quizlet(stack, say = False, reverse = False):
                 print("\n")
             wrong.append((index,resp))
         if say:
-            system(f"say -v {lang_voice[lang_d]} {ans.replace('(',' ').replace(')',' ').replace('/',' ')}")
+            system(f"say -v {lang_d} {ans.replace('(',' ').replace(')',' ').replace('/',' ')}")
         q.remove(index)       #removes index to prevent repetition
         time.sleep(0.1) if say else time.sleep(0.3)
 
     print(f"\nYou got {right} out of {i+1} right!\nThat's a " + colored(str(round((right/(i+1))*100)),"cyan") + " percent!\n")
-    choice = input("Would you like to see the words you got wrong? y/n?")
+    choice = input("Would you like to see the words you got wrong? [y]/n ")
     if choice == "y" or choice == "":
+        stack_wrong = dict(zip([defin[i[0]-1] for i in wrong],[term[i[0]-1] for i in wrong]))       #creates dict with mistakes
         for i in wrong:
             print("\nYou entered '" + colored(i[1], "red") + "' for '" + colored(term[i[0]-1],"blue") + "'. The correct answer is '" + start + colored(defin[i[0]-1],"green",attrs=["underline"]) + end + "'")
+        save = input("\nWould you like to save the words you got wrong into a stack? y/[n] ")
+        if save != "n" and save != "" and save != "no":
+            root = Path(".")
+            new = False
+            while new == False:
+                path = input(f"What would you like to name your new file?  {(stack + '_') if isinstance(stack,str) else ''}") 
+                path = (stack + "_") if isinstance(stack,str) else "" + path
+                path += "" if path.endswith(".txt") else ".txt"              
+                path_2_stacks = root/"stacks"/path
+                if path_2_stacks.exists():
+                    print("File already exists\n")
+                else: new = True
+            with open(path_2_stacks,"a") as dic:
+                dic.write(str(stack_wrong))
+            print("Stack is saved at '" + str(path_2_stacks) + "'!")
+        study = input("\nWould you like to study the words you got wrong? y/[n] ")
+        if study != "n" and study != "" and study != "no":
+            quizlet(stack_wrong,say=say,reverse=reverse)
+
     exit(2)
 
 #Paste flashcards here from quizlet.com (see README), *optional if using existing file*
