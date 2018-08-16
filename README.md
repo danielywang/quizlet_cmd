@@ -107,7 +107,10 @@ Version 1.1.3
 **1.1 Now supports voice prompts!**
 The *say* feature will be automatically turned on if you are on Mac OS. Again, feel free to turn it off.  
 
-**1.1.3 Colors and bolding support Windows**
+**1.1.3 Colors and bolding support Windows**  
+
+Known issues:
+Colors and bolding in Windows only work in CMD
 ***
 ## Author
 
