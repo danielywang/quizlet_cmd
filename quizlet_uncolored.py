@@ -3,12 +3,7 @@ import random, time, sys
 from pathlib import Path
 from ast import literal_eval
 
-"""INSTRUCTIONS FOR EXPORTING SET FROM QUIZLET
-In "export" under the triple-dot, enter the below 'custom' settings (with the quotes)
-Between term and definition:    ":"
-Between rows:                   ",\n"
-Paste in stack, add init quote, del. end quote
-"""
+#See instructions from README for creating/importing flashcards
 
 def quizlet(stack, reverse = False):
     """Quizlet_CMD program
@@ -98,7 +93,7 @@ def quizlet(stack, reverse = False):
 
     exit(2)
 
-#Paste flashcards here from quizlet.com (see readme), *optional if using existing file*
-stack = {}
+# *optional if using existing file*  Write your own dictionary here only for short stacks or testing purposes
+stack = {"你好":"hello"}
 
 print(quizlet("example"))
