@@ -82,26 +82,25 @@ A **Mac** is required for the _optional_ `say` feature in *quizlet_colored.py*, 
 ## Getting Term-Definition Dictionaries
 
 To get the flashcards (stacks) necessary for practicing, we can get the dictionary by:
-1.  Copying an existing Quizlet set off the website
+
+1. Create your own set with ease with "quizlet_dict.py"
+	* Execute dict_generator() in `quizlet_dict.py`. Read doc string for details. The dict will be saved as a text file into the "stacks" folder.    
+	
+2.  Copying an existing Quizlet set off the website
 	* a. Go to the set on quizlet.com
 	* b. Under the title, click on the "..."  Go to "export"
 	* c. Enter the below custom settings for each column *with quotes*
-		'Between term and definition' ⟶  ```":"```
-		'Between rows' ⟶  ```",\n"```
+		'Between term and definition' ⟶  `":"`
+		'Between rows' ⟶  `","`
 	* d. Click ['Copy text']
-	* e. Paste into the variable (dict) named 'stack' in *quizlet_colored.py* or *quizlet_uncolored.py*, add 1 quote at the beginning of the dictionary, delete extra quote at the end.
-  
-2.  You can also paste the dict from above into a new ```.txt``` file in the folder *stacks*. __You need to take out the \n in the [between rows] option since the module only reads 1 line__  -> ```","```
-    * Add 1 quote at the beginning of the dictionary, delete extra quote at the end.
-    * Add curly brackets around the whole text `{}`
-    * This method is *strongly* recommended if you want to store multiple sets and switch between them with ease.
+	* e. Go to *quizlet_dict.py*, and change the param `from_export` to `True`, run the file. When prompted, paste the above copied text. The program converts the text into a dictionary. A new text file with the name of your choosing will be stored in the `stacks` folder. To study the set, simply input the name of the file into the `quizlet` function in *quizlet_colored.py* (or *quizlet_uncolored.py*)
 
-3. Create your own set with ease with "quizlet_dict.py"
-	* a. Execute dict_generator() in ```quizlet_dict.py```. Read doc string for details. The dict will be saved into the "stacks" folder.  
+3.  For short flash cards or to test/have fun with the `quizlet` program, you can also manually type in a term-to-def. dictionary under the `stack` variable in *quizlet_colored.py* (or *quizlet_uncolored.py*). Be sure to change the param of the `quizlet` function to the variable `stack`
+
 ***
 ## Versioning
 
-Version 1.2.0
+Version 1.2.1
 
 **1.1 Now supports voice prompts!**
 The *say* feature will be automatically turned on if you are on Mac OS. Again, feel free to turn it off.  
