@@ -62,4 +62,4 @@ def dict_generator(max_words = 50, copy = False, from_export = False):
     return stack
 
 #copy and paste dictionary into quizlet.py, under variable 'stack'
-print(dict_generator(10,from_export=True))
+print(dict_generator(30))
