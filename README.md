@@ -18,7 +18,7 @@ The recommended *quizlet_colored.py* requires the **termcolor** module
 
 Anaconda users: use `conda` instead
   
-Note: Mac OS is required for the _optional_ `say` feature in *quizlet_colored.py*
+Note: Mac OS is required for the _optional_ `say` feature in *quizlet_colored.py* (turned on by default)
 ***
 If the above doesn't work, run
 `pip install termcolor`
@@ -52,7 +52,7 @@ Enter ```#exit``` at any time to end practice session and show score
 
 #### Features
 * Param `stack` can either open file with file name (recommended), or use the internal `stack` dictionary 
-* Param `say = True` reads prompts and answers using specified languages _(Mac only)_
+* Param `say = True` (default) reads prompts and answers using specified languages _(Mac only)_
 	* Realized using Mac OS's built-in `say` function. User input specifies language, which activates different voices. Program is optimzed for irregular characters such as `(parentheses)` and `/` slashes
 * Param `reverse = True` reverses terms/definitions
 * Program notifies user if their wrong answer matches another answer  
@@ -76,7 +76,7 @@ Enter ```#exit``` at any time to end practice session and show score
 
 #### Remarks
 A **Mac** is required for the _optional_ `say` feature in *quizlet_colored.py*, which speaks the terms and definitions out loud.
- *quizlet_colored.py* currently has an OS detection set in place, so if you are on Mac OS, the featured will be enabled and vice versa. **feel free to change the parameters of the _quizlet_ function!** The defaults are just there as a demonstration.
+ *quizlet_colored.py* currently has an OS detection set in place, so if you are not on Mac OS, the featured will be disabled. **feel free to change the parameters of the _quizlet_ function!** The defaults are just there as a demonstration.
 
 ***
 ## Getting Term-Definition Dictionaries
@@ -100,7 +100,7 @@ To get the flashcards (stacks) necessary for practicing, we can get the dictiona
 ***
 ## Versioning
 
-Version 1.2.1
+Version 1.2.2
 
 **1.1 Now supports voice prompts!**
 The *say* feature will be automatically turned on if you are on Mac OS. Again, feel free to turn it off.  
