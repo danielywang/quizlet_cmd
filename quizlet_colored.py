@@ -20,7 +20,7 @@ def quizlet(stack, say = True, reverse = False):
         #ONLY AVAILABLE ON MAC OS!!!
         whether to read the terms and definitions. optional (default = True)
     reverse (bool):
-        whether terms/definitions are reversed. optional"""
+        whether terms/definitions are reversed. optional (default = False)"""
 
     def correct(half=False):
         if half:
