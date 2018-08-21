@@ -7,7 +7,7 @@ from os import system
 
 #See instructions from README for creating/importing flashcards
 
-def quizlet(stack, say = False, reverse = False):
+def quizlet(stack, say = True, reverse = False):
     """Quizlet_CMD program
     This is a complete and full-featured flashcards study tool. Study Quizlet flashcards in the command line without an API
 
@@ -68,7 +68,7 @@ def quizlet(stack, say = False, reverse = False):
         index = random.choice(q)      #randomly selects index
         print(start + f"{term[index-1]}" + end)
         if say:
-            system(f"say -v {lang_t} {term[index-1].replace('(',' ').replace(')',' ').replace('/',' ')}")
+            system("say -v {} {}".format(lang_t,term[index-1].replace('(',' ').replace(')',' ').replace('/',' ').replace('\'','')))
         resp = input().lower()
         ans = defin[index-1].lower()
         if resp == ans:       #checks for equiv
@@ -94,7 +94,7 @@ def quizlet(stack, say = False, reverse = False):
                 print("\n")
             wrong.append((index,resp))
         if say:
-            system(f"say -v {lang_d} {ans.replace('(',' ').replace(')',' ').replace('/',' ')}")
+            system("say -v {} {}".format(lang_d,ans.replace('(',' ').replace(')',' ').replace('/',' ').replace('\'','')))
         q.remove(index)       #removes index to prevent repetition
         time.sleep(0.1) if say else time.sleep(0.3)
 
@@ -132,6 +132,6 @@ stack = {"你好":"hello"}
 #Again, 'say' is only available for Mac OS. 
 #Feel free to change the params of the function!
 if sys.platform == 'darwin':
-    print(quizlet("example", say=True))
+    print(quizlet("example"))
 else:
     print(quizlet("example", say=False))
