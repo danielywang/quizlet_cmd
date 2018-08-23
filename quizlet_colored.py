@@ -80,12 +80,11 @@ def quizlet(stack, say = True, reverse = False):
         elif "/" in ans and (resp == ans.split("/")[0] or resp == ans.split("/")[1]):   #if there are 2 ans
             correct(half=True)
             right += 1
-        elif "(" in ans and resp == ans[:ans.find("(")] or resp == ans[:ans.find("(")]+" ":    #if there are parentheses
+        elif "(" in ans and resp == ans[:ans.find("(")] or resp == ans[:ans.find("(")]+" " or resp == ans.replace("("," (") or resp == ans.replace("("," ").replace(")","") or resp == ans.replace("(","").replace(")",""):    #if there are parentheses
             correct(half=True)
             right += 1
-        elif resp == (ans[:ans.find("(")-1] or ans.replace(" (","(")) if ans[ans.find("(")-1].endswith(" ") else False:
+        elif ans[ans.find("(")-1] == " " and (resp == ans[:ans.find("(")-1] or resp == ans.replace(" (","(")):
             correct(half=True)
-            right += 1
         else:
             print("The correct answer is " + start + colored(f"{ans}","red") + end)   #if wrong, provides correct ans
             if resp in defin:
@@ -126,12 +125,14 @@ def quizlet(stack, say = True, reverse = False):
     exit(2)
 
 # *optional if using existing file*  Write your own dictionary here only for short stacks or testing purposes
-stack = {"你好":"hello"}
+# stack = {"你好":"hello"}
+stack = {"rosa(a)":"nospace",
+"rosa (a)":"space"}
 
 
 #Again, 'say' is only available for Mac OS. 
 #Feel free to change the params of the function!
 if sys.platform == 'darwin':
-    print(quizlet("example"))
+    print(quizlet(stack, say = False))
 else:
     print(quizlet("example", say=False))
