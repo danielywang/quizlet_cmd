@@ -48,11 +48,11 @@ def quizlet(stack, reverse = False):
             break
         elif "/" in ans and (resp == ans.split("/")[0] or resp == ans.split("/")[1]):   #if there are 2 ans
             print("Correct" + f" '{ans}'\n")
-            right += 1
-        elif "(" in ans and resp == ans[:ans.find("(")] or resp == ans[:ans.find("(")]+" ":    #if there are parentheses
+            right += 1 
+        elif "(" in ans and resp == ans[:ans.find("(")] or resp == ans[:ans.find("(")]+" " or resp == ans.replace("("," (") or resp == ans.replace("("," ").replace(")","") or resp == ans.replace("(","").replace(")",""):    #if there are parentheses
             print("Correct" + f" '{ans}'\n")
-            right += 1
-        elif resp == (ans[:ans.find("(")-1] or ans.replace(" (","(")) if ans[ans.find("(")-1].endswith(" ") else False:
+            right += 1 
+        elif ans[ans.find("(")-1] == " " and (resp == ans[:ans.find("(")-1] or resp == ans.replace(" (","(")):
             print("Correct" + f" '{ans}'\n")
             right += 1 
         else:

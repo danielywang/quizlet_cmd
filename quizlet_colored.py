@@ -125,14 +125,11 @@ def quizlet(stack, say = True, reverse = False):
     exit(2)
 
 # *optional if using existing file*  Write your own dictionary here only for short stacks or testing purposes
-# stack = {"你好":"hello"}
-stack = {"rosa(a)":"nospace",
-"rosa (a)":"space"}
-
+stack = {"你好":"hello"}
 
 #Again, 'say' is only available for Mac OS. 
 #Feel free to change the params of the function!
 if sys.platform == 'darwin':
-    print(quizlet(stack, say = False))
+    print(quizlet("example"))
 else:
     print(quizlet("example", say=False))
