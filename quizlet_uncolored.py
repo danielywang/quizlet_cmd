@@ -60,7 +60,7 @@ def quizlet(stack, reverse = False):
             if resp in defin:
                 print(f"'{resp}' is the answer for '" + start + term[defin.index(resp)] + end + "'\n")
             else:
-                print("\n")
+                print("")
             wrong.append((index,resp))
         q.remove(index)       #removes index to prevent repetition
         time.sleep(0.35)

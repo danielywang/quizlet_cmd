@@ -90,7 +90,7 @@ def quizlet(stack, say = True, reverse = False):
             if resp in defin:
                 print(f"'{resp}' is the answer for '" + colored(term[defin.index(resp)],"blue") + "'\n")
             else:
-                print("\n")
+                print("")
             wrong.append((index,resp))
         if say:
             system("say -v {} {}".format(lang_d,ans.replace('(',' ').replace(')',' ').replace('/',' ').replace('\'','')))
